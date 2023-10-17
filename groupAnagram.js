@@ -1,20 +1,16 @@
-const groupAnagram = (strs) => {
-  //approach is that first we will create an empty object and then sort the string values of array and group them if the strings match.
-
-  const anagramGroups = {}; //initailized an empty array
+var groupAnagrama = (strs) => {
+  const groupAnagram = {};
 
   for (const str of strs) {
-    const sorted = str.split("").sort().join(""); //sorted the array
-    if (!anagramGroups[sorted]) {
-      //if there is no group we will create a group
-      anagramGroups[sorted] = [str];
+    const sorted = str.split("").sort().join("");
+    if (!groupAnagram[sorted]) {
+      groupAnagram[sorted] = [str];
     } else {
-      anagramGroups[sorted].push(str);
+      groupAnagram[sorted].push(str);
     }
   }
-  return Object.values(anagramGroups);
+  return groupAnagram;
 };
 
-const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
-const result = groupAnagram(strs);
-console.log(result);
+const str = ["eat", "tea", "tan", "ate", "nat", "bat"];
+console.log(groupAnagrama(str));
